@@ -45,6 +45,7 @@ namespace CuentasCobrar.Controllers.CuentasxCobrar
         // GET: TiposDocumentos/Create
         public IActionResult Create()
         {
+            ViewBag.Estado = new SelectList(_context.Estado.ToList(), "ID", "Descripcion");
             return View();
         }
 
