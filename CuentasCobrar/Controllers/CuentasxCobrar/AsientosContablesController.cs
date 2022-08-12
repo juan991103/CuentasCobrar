@@ -66,9 +66,11 @@ namespace CuentasCobrar.Controllers.CuentasxCobrar
                 var response = await callAccouningService(asientos_Contables);
 
                 //sacar id del response
-                //agergar id de contabilidad
-                //asientos_Contables.idRegistro = response.id
+                var responseAsString = await response.Content.ReadAsStringAsync();
+                var accountingResponse = JsonConvert.DeserializeObject<AccountingResponse>(responseAsString);
 
+                //agergar id de contabilidad
+                asientos_Contables.Id_registro = accountingResponse.responseList.ElementAt(0).id;
 
                 //guardar BBDD local
                 _context.Add(asientos_Contables);

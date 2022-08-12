@@ -35,5 +35,7 @@ namespace CuentasCobrar.Models
 
         [StringLength(10)]
         public string Estado { get; set; }
+
+        public int Id_registro { get; set; }
     }
 }

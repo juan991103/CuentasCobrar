@@ -44,6 +44,10 @@ using CuentasCobrar.Models;
                 .Property(e => e.Estado)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Asientos_Contables>()
+                .Property(e => e.Id_registro)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Clientes>()
                 .Property(e => e.Identificador)
                 .IsUnicode(false);
