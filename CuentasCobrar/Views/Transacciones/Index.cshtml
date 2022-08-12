@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CuentasCobrar.Models.Transacciones>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Identificador_Transacción)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_de_Movimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_Documento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Número_de_Documento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Identificador_Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Monto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identificador_Transacción)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_de_Movimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_Documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Número_de_Documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identificador_Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
