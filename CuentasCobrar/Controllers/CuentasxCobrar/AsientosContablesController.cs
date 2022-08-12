@@ -50,6 +50,12 @@ namespace CuentasCobrar.Controllers.CuentasxCobrar
         // GET: AsientosContables/Create
         public IActionResult Create()
         {
+            //Estado
+            ViewBag.Estado = new SelectList(_context.Estado.ToList(), "Descripcion", "Descripcion");
+
+            //Identificador del cliente
+            ViewBag.IdenCliente = new SelectList(_context.Clientes.Where(f => f.Estado == "Activo").ToList(), "Identificador", "Identificador");
+
             return View();
         }
 
@@ -64,8 +70,8 @@ namespace CuentasCobrar.Controllers.CuentasxCobrar
             {
                 //llamar api de contabilidad
                 var response = await callAccouningService(asientos_Contables);
-
-                //sacar id del response
+                
+                ////sacar id del response
                 var responseAsString = await response.Content.ReadAsStringAsync();
                 var accountingResponse = JsonConvert.DeserializeObject<AccountingResponse>(responseAsString);
 

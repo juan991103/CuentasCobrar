@@ -24,9 +24,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Tipo_Documento" class="control-label"></label>
-                <input asp-for="Tipo_Documento" class="form-control" />
-                <span asp-validation-for="Tipo_Documento" class="text-danger"></span>
-
+                <select asp-for="Tipo_Documento" class="form-control input-group, dropdown-submenu" asp-items="@ViewBag.TipoDocumento">
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Número_de_Documento" class="control-label"></label>
@@ -40,8 +39,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Identificador_Cliente" class="control-label"></label>
-                <input asp-for="Identificador_Cliente" class="form-control" />
-                <span asp-validation-for="Identificador_Cliente" class="text-danger"></span>
+                <select asp-for="Identificador_Cliente" class="form-control input-group, dropdown-submenu" asp-items="@ViewBag.IdenCliente">
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Monto" class="control-label"></label>
@@ -50,11 +49,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Estado" class="control-label"></label>
-                <select asp-for="Estado" class="custom-select-lg">
-                    @foreach (var item in ViewBag.Estado)
-                    {
-                        <option value="@item">@item</option>
-                    }
+                <select asp-for="Estado" class="form-control input-group, dropdown-submenu" asp-items="@ViewBag.Estado">
                 </select>
             </div>
             <div class="form-group">

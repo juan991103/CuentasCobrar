@@ -46,14 +46,13 @@ namespace CuentasCobrar.Controllers.CuentasxCobrar
         public IActionResult Create()
         {
             //Estado
-            List<string> empleados = new List<string>();
-            var vd = from em in _context.Estado select em;
-            foreach (var item in vd)
-            {
-                empleados.Add(item.Descripcion);
-                ViewBag.Estado = empleados;
-            }
-            //
+            ViewBag.Estado = new SelectList(_context.Estado.ToList(), "Descripcion", "Descripcion");
+
+            //Tipos de documento
+            ViewBag.TipoDocumento = new SelectList(_context.Tipos_documentos.Where(f => f.Estado == "Activo").ToList(), "Descripcion", "Descripcion");
+
+            //Identificador del cliente
+            ViewBag.IdenCliente = new SelectList(_context.Clientes.Where(f => f.Estado == "Activo").ToList(), "Identificador", "Identificador");
 
             return View();
         }
