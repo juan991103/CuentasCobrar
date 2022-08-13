@@ -88,7 +88,6 @@ namespace CuentasCobrar.Controllers.CuentasxCobrar
 
         public async Task<HttpResponseMessage> callAccouningService(Asientos_Contables asientos_Contables)
         {
-
             //map to request model
             var requestModel = mapToRequest(asientos_Contables);
             List<AccountingRequest> requestList = new List<AccountingRequest>();
