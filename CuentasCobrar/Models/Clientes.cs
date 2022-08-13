@@ -25,7 +25,7 @@ namespace CuentasCobrar.Models
 
         [Column(TypeName = "numeric")]
         [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString = "{0:RD$#,##}", ApplyFormatInEditMode = false)]
+        [DisplayFormat(DataFormatString = "{0:RD$#,##.##}", ApplyFormatInEditMode = false)]
         public decimal? Limite_credito { get; set; }
 
         [StringLength(10)]
