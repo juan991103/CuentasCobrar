@@ -28,9 +28,12 @@ namespace CuentasCobrar.Models
         public string Tipo_de_Movimiento { get; set; }
 
         [Column(TypeName = "date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime? Fecha_Asiento { get; set; }
 
-        [Column(TypeName = "numeric")]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:RD$#,##}", ApplyFormatInEditMode = false)]
         public decimal? Monto_Asiento { get; set; }
 
         [StringLength(10)]

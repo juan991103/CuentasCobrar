@@ -17,10 +17,15 @@ namespace CuentasCobrar.Models
         public string Nombre { get; set; }
 
         [Required]
-        [StringLength(30)]
+        [StringLength(11)]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{7})[-. ]?([0-9]{1})$", ErrorMessage = "Cedula no valida")]
+        [DisplayFormat(DataFormatString = "{0:###-#######-#}", ApplyFormatInEditMode = false)]
         public string Cedula { get; set; }
 
         [Column(TypeName = "numeric")]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:RD$#,##}", ApplyFormatInEditMode = false)]
         public decimal? Limite_credito { get; set; }
 
         [StringLength(10)]

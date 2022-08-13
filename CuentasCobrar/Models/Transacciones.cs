@@ -25,6 +25,8 @@ namespace CuentasCobrar.Models
         public decimal Número_de_Documento { get; set; }
 
         [Column(TypeName = "date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime Fecha { get; set; }
 
         [Required]
@@ -32,6 +34,9 @@ namespace CuentasCobrar.Models
         public string Identificador_Cliente { get; set; }
 
         [Column(TypeName = "numeric")]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:RD$#,##}", ApplyFormatInEditMode = false)]
+
         public decimal Monto { get; set; }
 
         [StringLength(10)]
