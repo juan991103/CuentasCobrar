@@ -68,14 +68,14 @@ namespace CuentasCobrar.Controllers.CuentasxCobrar
         {
             if (ModelState.IsValid)
             {
-                //llamar api de contabilidad
+                ////llamar api de contabilidad
                 var response = await callAccouningService(asientos_Contables);
-                
-                ////sacar id del response
+
+                //////sacar id del response
                 var responseAsString = await response.Content.ReadAsStringAsync();
                 var accountingResponse = JsonConvert.DeserializeObject<AccountingResponse>(responseAsString);
 
-                //agergar id de contabilidad
+                ////agergar id de contabilidad
                 asientos_Contables.Id_registro = accountingResponse.responseList.ElementAt(0).id;
 
                 //guardar BBDD local
